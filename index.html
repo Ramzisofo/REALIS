@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REALIS @ AISTATS 2027 — Reliable Learning for Interacting Systems</title>
+    <meta name="description" content="REALIS: Reliable Learning for Interacting Systems. A one-day workshop proposed for AISTATS 2027, Montréal, May 3, 2027.">
+    <meta name="keywords" content="AISTATS 2027, workshop, distributional robustness, distribution shift, interacting systems, causality, uncertainty quantification, conformal prediction, learning-based control, safe reinforcement learning, multi-agent systems, LLM agents, graph learning">
+    <!-- Open Graph -->
+    <meta property="og:title" content="REALIS @ AISTATS 2027 — Reliable Learning for Interacting Systems">
+    <meta property="og:description" content="Workshop on robust, reliable and generalizable learning for interacting systems under distribution shift. AISTATS 2027, Montréal, May 3, 2027.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reliable-ml.github.io">
+    <meta property="og:image" content="https://reliable-ml.github.io/assets/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="REALIS @ AISTATS 2027">
+    <meta name="twitter:description" content="Reliable Learning for Interacting Systems. AISTATS 2027 workshop, Montréal, May 3, 2027.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2L4 10V22C4 31.05 10.95 39.35 20 40C29.05 39.35 36 31.05 36 22V10L20 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <path d="M20 8L10 13V21C10 26.55 14.15 31.65 20 32C25.85 31.65 30 26.55 30 21V13L20 8Z" fill="currentColor" opacity="0.2"/>
+                </svg>
+                <span>REALIS 2027</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#speakers" class="nav-link">Speakers</a></li>
+                <li><a href="#program" class="nav-link">Program</a></li>
+                <li><a href="#practical" class="nav-link">Dates</a></li>
+                <li><a href="#organizers" class="nav-link">Organizers</a></li>
+                <li><a href="#history" class="nav-link">Past Events</a></li>
+                <li><a href="#register" class="nav-link nav-link-cta">Call for Papers</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero hero-montreal" id="hero">
+        <canvas class="hero-canvas" id="hero-canvas"></canvas>
+        <div class="hero-shield">
+            <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 10L20 45V115C20 170 55 215 100 230C145 215 180 170 180 115V45L100 10Z"
+                      stroke="url(#shield-gradient)" stroke-width="2" fill="none" class="shield-outer"/>
+                <path d="M100 30L40 55V115C40 160 65 195 100 205C135 195 160 160 160 115V55L100 30Z"
+                      fill="url(#shield-fill)" class="shield-inner"/>
+                <defs>
+                    <linearGradient id="shield-gradient" x1="100" y1="10" x2="100" y2="230" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B" stop-opacity="0.8"/>
+                        <stop offset="1" stop-color="#3B82F6" stop-opacity="0.4"/>
+                    </linearGradient>
+                    <linearGradient id="shield-fill" x1="100" y1="30" x2="100" y2="205" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B" stop-opacity="0.1"/>
+                        <stop offset="1" stop-color="#3B82F6" stop-opacity="0.05"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">Proposed Workshop · AISTATS 2027</div>
+            <h1 class="hero-title">REALIS 2027</h1>
+            <p class="hero-subtitle">Reliable Learning for Interacting Systems</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>May 3, 2027</span>
+                </div>
+                <div class="hero-meta-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>AISTATS 2027, Montréal, Canada</span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#register" class="btn btn-primary">Call for Papers</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">About</span>
+                <h2 class="section-title">Robustness for Systems That Interact</h2>
+            </div>
+            <div class="about-content animate-on-scroll">
+                <div class="about-text">
+                    <p>Interacting systems—gene regulatory networks, social webs, power grids, financial markets, robot fleets and, increasingly, populations of LLM agents that consume each other's outputs—rarely come with explicit dynamical laws, so they are modeled from data. Yet standard learning methods break down under distribution shift and high noise, and give unreliable predictions in rare regimes.</p>
+                    <p>Interconnection makes this harder in three ways: <strong>feedback</strong> lets a model's decisions shift the data it is later evaluated on; <strong>propagation</strong> turns local perturbations into system-wide shifts; and the relevant "distribution" is over coupled, non-stationary, structured objects rather than i.i.d. samples.</p>
+                </div>
+                <blockquote class="about-quote">
+                    <p>How can we design learning methods that remain robust, reliable and generalizable when learning from, and acting on, interacting systems under distribution shift?</p>
+                </blockquote>
+                <p class="about-text">REALIS brings together communities that rarely meet—distributionally robust optimization, causality and invariance, statistical inference and uncertainty quantification, and control and reinforcement learning—to ask what transfers between their toolkits when the system is coupled and has feedback.</p>
+            </div>
+            <div class="themes animate-on-scroll">
+                <h3 class="themes-title">Topics</h3>
+                <div class="themes-grid">
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <span>Distributionally Robust Learning for Networked & Dynamical Data</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <span>Causality, Invariance & OOD Generalization</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 20V10"/>
+                                <path d="M18 20V4"/>
+                                <path d="M6 20v-4"/>
+                            </svg>
+                        </div>
+                        <span>Uncertainty Quantification & Valid Inference under Dependence and Shift</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                                <line x1="4" y1="22" x2="4" y2="15"/>
+                            </svg>
+                        </div>
+                        <span>Safe Exploration & Learning-Based Control</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                <path d="M16 3l-4 4-4-4"/>
+                            </svg>
+                        </div>
+                        <span>Performativity & Auditing Algorithms that Shape Behavior</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="6" cy="6" r="3"/>
+                                <circle cx="18" cy="6" r="3"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="18" r="3"/>
+                                <line x1="6" y1="9" x2="6" y2="15"/>
+                                <line x1="18" y1="9" x2="18" y2="15"/>
+                                <line x1="9" y1="6" x2="15" y2="6"/>
+                                <line x1="9" y1="18" x2="15" y2="18"/>
+                            </svg>
+                        </div>
+                        <span>Robust Graph Learning & Structure Inference</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <span>Generalization Theory for Coupled, Non-i.i.d. Systems</span>
+                    </div>
+                    <div class="theme-item">
+                        <div class="theme-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                <path d="M7 15l3-3 3 3 4-5"/>
+                            </svg>
+                        </div>
+                        <span>Benchmarks for Reliability under Realistic Shift</span>
+                    </div>
+                </div>
+            </div>
+            <div class="applications animate-on-scroll">
+                <h3 class="applications-title">Application Areas</h3>
+                <div class="applications-grid">
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h4>Multi-Agent LLMs</h4>
+                        <p>Agents act on each other's outputs, so one agent's drift becomes another's distribution shift</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h4>Power Networks</h4>
+                        <p>Learned controllers that stay safe on a coupled grid where local faults cascade</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                                <path d="M8 12a4 4 0 0 1 8 0"/>
+                            </svg>
+                        </div>
+                        <h4>Genomics</h4>
+                        <p>Gene regulatory network inference for cancer drug response that transfers across cell lines and patients</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                                <circle cx="12" cy="5" r="3"/>
+                                <path d="M7 11V8a5 5 0 0 1 10 0v3"/>
+                            </svg>
+                        </div>
+                        <h4>Robotics</h4>
+                        <p>Robots and fleets that adapt to changing environments while exploring safely</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3 3v18h18"/>
+                                <path d="M7 14l4-4 3 3 5-6"/>
+                            </svg>
+                        </div>
+                        <h4>Financial Networks</h4>
+                        <p>Systemic-risk forecasts that hold in rare stress regimes and under their own feedback</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Speakers Section -->
+    <section class="section section-alt" id="speakers">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Speakers</span>
+                <h2 class="section-title">Invited Speakers</h2>
+                <p class="section-subtitle">Robust optimization, safe decision-making, inference and algorithmic feedback</p>
+            </div>
+            <div class="speakers-grid animate-on-scroll">
+                <div class="speaker-card">
+                    <div class="speaker-photo" data-initials="DK">
+                        <img src="assets/speakers/daniel-kuhn.png" alt="Daniel Kuhn" onerror="this.style.display='none'">
+                    </div>
+                    <div class="speaker-info">
+                        <h4 class="speaker-name">Daniel Kuhn</h4>
+                        <p class="speaker-affiliation">EPFL</p>
+                        <p class="speaker-talk">Distributionally Robust Optimization as a Game: Nash Equilibria and Robust Policy Learning</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo" data-initials="AK">
+                        <img src="assets/speakers/Andreas-Krause-2025-web.jpg" alt="Andreas Krause" onerror="this.style.display='none'">
+                    </div>
+                    <div class="speaker-info">
+                        <h4 class="speaker-name">Andreas Krause</h4>
+                        <p class="speaker-affiliation">ETH Zürich</p>
+                        <p class="speaker-talk">Safe and Efficient Exploration in Model-Based Reinforcement Learning</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo" data-initials="SC">
+                        <img src="assets/organizers/sarah-cen.jpeg" alt="Sarah Cen" onerror="this.style.display='none'">
+                    </div>
+                    <div class="speaker-info">
+                        <h4 class="speaker-name">Sarah Cen</h4>
+                        <p class="speaker-affiliation">Carnegie Mellon University</p>
+                        <p class="speaker-talk">Counterfactual Audits of Algorithms That Shape Human Behavior</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo" data-initials="BT">
+                        <img src="assets/organizers/bahar-taskesen.jpg" alt="Bahar Taşkesen" onerror="this.style.display='none'">
+                    </div>
+                    <div class="speaker-info">
+                        <h4 class="speaker-name">Bahar Taşkesen</h4>
+                        <p class="speaker-affiliation">University of Chicago Booth</p>
+                        <p class="speaker-talk">Optimality of Linear Policies in Distributionally Robust Linear-Quadratic Control</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo" data-initials="AB">
+                        <img src="assets/speakers/Amine_photo.jpg" alt="Amine Bennouna" onerror="this.style.display='none'">
+                    </div>
+                    <div class="speaker-info">
+                        <h4 class="speaker-name">Amine Bennouna</h4>
+                        <p class="speaker-affiliation">Northwestern University (Kellogg)</p>
+                        <p class="speaker-talk">Holistic Robustness in Data-Driven Decisions: Statistical Error, Noise, and Corruption</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-photo" data-initials="SB">
+                        <img src="assets/speakers/stephen-bates.jpg" alt="Stephen Bates" onerror="this.style.display='none'">
+                    </div>
+                    <div class="speaker-info">
+                        <h4 class="speaker-name">Stephen Bates</h4>
+                        <p class="speaker-affiliation">MIT · Tentative</p>
+                        <p class="speaker-talk">Valid Uncertainty Quantification under Shift (title TBA)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Program Section -->
+    <section class="section" id="program">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Program</span>
+                <h2 class="section-title">One Day, Built for Discussion</h2>
+                <p class="section-subtitle">Invited and contributed talks, two poster sessions, and open-problems breakout tables. Tentative schedule.</p>
+            </div>
+            <div class="schedule animate-on-scroll">
+                <div class="schedule-tabs">
+                    <button class="schedule-tab active" data-day="1">
+                        <span class="schedule-tab-day">Workshop Day</span>
+                        <span class="schedule-tab-date">May 3, 2027</span>
+                    </button>
+                </div>
+                <div class="schedule-content">
+                    <div class="schedule-day active" data-day="1">
+                        <div class="schedule-day-header">
+                            <h3>Reliable Learning for Interacting Systems</h3>
+                            <p>AISTATS 2027, Montréal</p>
+                        </div>
+                        <div class="schedule-items">
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:00</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Opening</span>
+                                    <h4>Opening Remarks</h4>
+                                    <p>Organizers</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:10</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Invited Talk</span>
+                                    <h4>Distributionally Robust Optimization as a Game: Nash Equilibria and Robust Policy Learning</h4>
+                                    <p>Daniel Kuhn (EPFL)</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:45</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Invited Talk</span>
+                                    <h4>Safe and Efficient Exploration in Model-Based Reinforcement Learning</h4>
+                                    <p>Andreas Krause (ETH Zürich)</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:20</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Contributed</span>
+                                    <h4>Contributed Talks 1 &amp; 2</h4>
+                                </div>
+                            </div>
+                            <div class="schedule-item schedule-item-break">
+                                <div class="schedule-time">10:40</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-break">Posters</span>
+                                    <h4>Coffee Break &amp; Poster Session I</h4>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">11:40</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Invited Talk</span>
+                                    <h4>Counterfactual Audits of Algorithms That Shape Human Behavior</h4>
+                                    <p>Sarah Cen (Carnegie Mellon University)</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item schedule-item-break">
+                                <div class="schedule-time">12:15</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-break">Break</span>
+                                    <h4>Lunch &amp; Mentoring Tables for First-Time Authors</h4>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">13:30</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Invited Talk</span>
+                                    <h4>Optimality of Linear Policies in Distributionally Robust Linear-Quadratic Control</h4>
+                                    <p>Bahar Taşkesen (University of Chicago Booth)</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">14:05</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Invited Talk</span>
+                                    <h4>Holistic Robustness in Data-Driven Decisions: Statistical Error, Noise, and Corruption</h4>
+                                    <p>Amine Bennouna (Northwestern University)</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">14:40</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Invited Talk</span>
+                                    <h4>Valid Uncertainty Quantification under Shift (title TBA)</h4>
+                                    <p>Stephen Bates (MIT) · tentative</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">15:15</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Contributed</span>
+                                    <h4>Contributed Talks 3 &amp; 4</h4>
+                                </div>
+                            </div>
+                            <div class="schedule-item schedule-item-break">
+                                <div class="schedule-time">15:35</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-break">Posters</span>
+                                    <h4>Coffee Break &amp; Poster Session II</h4>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">16:20</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-workshop">Breakouts</span>
+                                    <h4>Open-Problems Breakout Tables</h4>
+                                    <p>One table per application domain, hosted by speakers and organizers</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">16:50</div>
+                                <div class="schedule-details">
+                                    <span class="schedule-type type-talk">Closing</span>
+                                    <h4>Table Reports, Best Paper Awards &amp; Closing</h4>
+                                    <p>Organizers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dates Section -->
+    <section class="section section-alt" id="practical">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Dates &amp; Format</span>
+                <h2 class="section-title">Everything You Need to Know</h2>
+            </div>
+            <div class="practical-grid animate-on-scroll">
+                <div class="practical-card">
+                    <div class="practical-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h4>Important Dates</h4>
+                    <ul>
+                        <li><strong>Call for papers:</strong> December 18, 2026</li>
+                        <li><strong>Submission deadline:</strong> January 29, 2027 (AoE)</li>
+                        <li><strong>Notification:</strong> March 5, 2027</li>
+                        <li><strong>Camera-ready:</strong> April 9, 2027</li>
+                        <li><strong>Workshop:</strong> May 3, 2027</li>
+                    </ul>
+                </div>
+                <div class="practical-card">
+                    <div class="practical-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                    </div>
+                    <h4>Submission Format</h4>
+                    <p><strong>Regular papers</strong> up to 8 pages; <strong>short papers</strong> up to 4 pages for preliminary results, position papers and negative results.</p>
+                    <p>Non-archival, double-blind, via OpenReview. Each paper receives at least two reviews.</p>
+                </div>
+                <div class="practical-card">
+                    <div class="practical-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="8" r="6"/>
+                            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                        </svg>
+                    </div>
+                    <h4>Talks &amp; Awards</h4>
+                    <p>All accepted papers are presented as posters. Four are selected for contributed talks, with priority to students and early-career researchers.</p>
+                    <p>We award a best paper and a best student paper.</p>
+                </div>
+                <div class="practical-card">
+                    <div class="practical-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Inclusion</h4>
+                    <p>Mentoring tables pair first-time authors with senior researchers. We are seeking sponsorship for travel grants for participants from underrepresented groups and regions.</p>
+                </div>
+                <div class="practical-card">
+                    <div class="practical-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h4>Virtual Access</h4>
+                    <p>Papers will be public on OpenReview, and talks streamed and posted with speaker consent. Authors unable to travel (e.g., visa issues) may present posters virtually.</p>
+                </div>
+                <div class="practical-card">
+                    <div class="practical-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h4>Venue</h4>
+                    <p>The workshop is held on the day before the AISTATS 2027 main conference (May 4–6) in Montréal, Canada. Room details will follow once the conference schedule is out.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call for Papers Section -->
+    <section class="section" id="register">
+        <div class="container">
+            <div class="register-wrapper animate-on-scroll">
+                <div class="register-content">
+                    <span class="section-tag">Call for Papers</span>
+                    <h2 class="section-title">Submit to REALIS 2027</h2>
+                    <p class="register-subtitle">The call for papers and the OpenReview submission link will be posted here in December 2026.</p>
+                    <div class="register-audience">
+                        <h4>We Welcome Work From</h4>
+                        <ul>
+                            <li>Machine learning and statistics</li>
+                            <li>Optimization and operations research</li>
+                            <li>Control, robotics and reinforcement learning</li>
+                            <li>Computational biology and network science</li>
+                            <li>Researchers from adjacent fields translating their perspective for an ML audience</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="register-audience">
+                    <h4>Open-Problems Breakout Tables</h4>
+                    <ul>
+                        <li><strong>Multi-agent LLMs:</strong> how do we certify a pipeline whose agents shift each other's input distributions?</li>
+                        <li><strong>Power grids:</strong> which robustness guarantees survive the move from simulation to a coupled physical network?</li>
+                        <li><strong>Gene regulatory networks:</strong> when is an inferred network stable enough to support drug-response predictions?</li>
+                        <li><strong>Robotics:</strong> how should safe exploration trade off against adaptation when the environment changes?</li>
+                        <li><strong>Financial networks:</strong> can systemic-risk forecasts be made robust to the feedback they create?</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">Table notes feed a post-workshop report on open problems and candidate benchmarks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Organizers Section -->
+    <section class="section section-alt" id="organizers">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Organizers</span>
+                <h2 class="section-title">Organizing Committee</h2>
+            </div>
+            <div class="organizers-grid animate-on-scroll">
+                <div class="organizer-card">
+                    <div class="organizer-photo" data-initials="RD">
+                        <img src="assets/organizers/ramzi-dakhmouche.jpg" alt="Ramzi Dakhmouche" onerror="this.style.display='none'">
+                    </div>
+                    <div class="organizer-info">
+                        <h4 class="organizer-name">Ramzi Dakhmouche</h4>
+                        <p class="organizer-affiliation">EPFL-Empa · PhD Student</p>
+                        <p class="organizer-bio">Uncertainty quantification and robustness for LLMs and network systems.</p>
+                    </div>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-photo" data-initials="ES">
+                        <img src="assets/organizers/eshaan-sharif.jpeg" alt="Ehsan Sharifian" onerror="this.style.display='none'">
+                    </div>
+                    <div class="organizer-info">
+                        <h4 class="organizer-name">Ehsan Sharifian</h4>
+                        <p class="organizer-affiliation">EPFL · PhD Student</p>
+                        <p class="organizer-bio">Distributionally robust optimization in complex systems and reinforcement learning.</p>
+                    </div>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-photo" data-initials="AN">
+                        <img src="assets/organizers/aripta-nema.jpg" alt="Arpita Nema" onerror="this.style.display='none'">
+                    </div>
+                    <div class="organizer-info">
+                        <h4 class="organizer-name">Arpita Nema</h4>
+                        <p class="organizer-affiliation">NTU Singapore · PhD Candidate</p>
+                        <p class="organizer-bio">Data-efficient learning, multimedia quality assessment and vision-language models.</p>
+                    </div>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-photo" data-initials="BL">
+                        <img src="assets/organizers/bruce-lee.jpeg" alt="Bruce Lee" onerror="this.style.display='none'">
+                    </div>
+                    <div class="organizer-info">
+                        <h4 class="organizer-name">Bruce D. Lee</h4>
+                        <p class="organizer-affiliation">ETH Zürich · Postdoc</p>
+                        <p class="organizer-bio">Learning-based and adaptive control, safe learning-enabled systems.</p>
+                    </div>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-photo" data-initials="DK">
+                        <img src="assets/organizers/daniel-khun.jpg" alt="Daniel Kuhn" onerror="this.style.display='none'">
+                    </div>
+                    <div class="organizer-info">
+                        <h4 class="organizer-name">Daniel Kuhn</h4>
+                        <p class="organizer-affiliation">EPFL · Professor</p>
+                        <p class="organizer-bio">Data-driven, stochastic and Wasserstein distributionally robust optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Past Events Section -->
+    <section class="section" id="history">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Past Events</span>
+                <h2 class="section-title">Where REALIS Comes From</h2>
+            </div>
+            <div class="about-content animate-on-scroll">
+                <p class="about-text"><strong>Reliable ML 2026</strong>, the ETH-EPFL summer school <em>Reliable Machine Learning: from LLMs to Cyber-Physical and Biological Systems</em> (ETH Zürich, August 31 – September 3, 2026), brought together invited speakers from academia and industry for four days of lectures, poster sessions and hands-on sessions. REALIS 2027 is its first edition as a conference workshop.</p>
+                <p class="about-text">Speakers included Daniel Kuhn, Andreas Krause, Jonas Peters, Christina Heinze-Deml, Claire Vernade, Michael Kirchhof, Jörn Jacobsen, Markus Wulfmeier, Soroosh Shafiee, Amine Bennouna, Clément Hongler, Emmanuel Abbé and Florian Tramèr.</p>
+                <p class="about-text" style="margin-top:1.5rem;"><a href="2026/" class="btn btn-primary">Visit the Reliable ML 2026 page</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="contact-wrapper animate-on-scroll">
+                <div class="contact-content">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p>For questions about REALIS 2027, please reach out to us.</p>
+                    <div class="contact-info">
+                        <a href="mailto:ramzi.dakhmouche@epfl.ch" class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span>ramzi.dakhmouche@epfl.ch</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg class="footer-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2L4 10V22C4 31.05 10.95 39.35 20 40C29.05 39.35 36 31.05 36 22V10L20 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 8L10 13V21C10 26.55 14.15 31.65 20 32C25.85 31.65 30 26.55 30 21V13L20 8Z" fill="currentColor" opacity="0.2"/>
+                        </svg>
+                        <span>REALIS 2027</span>
+                    </div>
+                    <p>Reliable Learning for Interacting Systems</p>
+                    <p>May 3, 2027 · AISTATS 2027, Montréal</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Workshop</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#speakers">Speakers</a></li>
+                            <li><a href="#program">Schedule</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Participate</h4>
+                        <ul>
+                            <li><a href="#register">Call for Papers</a></li>
+                            <li><a href="#practical">Dates</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Info</h4>
+                        <ul>
+                            <li><a href="#organizers">Organizers</a></li>
+                            <li><a href="#history">Past Events</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 REALIS Workshop Organizers.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
