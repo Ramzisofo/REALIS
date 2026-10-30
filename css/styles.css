@@ -2262,5 +2262,5 @@ button:focus-visible {
 
 /* REALIS 2027: Montréal hero background (overrides the ETH photo on the workshop page) */
 .hero.hero-montreal {
-    background: #0b1a33 url('../assets/images/montreal-hero.svg') center bottom / cover no-repeat;
+    background: #0b1a33 url('../assets/images/montreal-mcgill.jpg') center 40% / cover no-repeat;
 }
